@@ -5,8 +5,9 @@ i = 122
 num = 0
 
 while num <= 25:
+    k=i
     if (num % 2 == 1):
-        i=i-32
-    print(chr(i))
+        k=i-32
+    print("{}".format(chr(k)), end="")
     i-=1
     num+=1
