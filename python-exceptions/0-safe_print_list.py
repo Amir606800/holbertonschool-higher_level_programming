@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 def safe_print_list(my_list=[], x=0):
     try:
-        for i in my_list[:x]:
-            print(i, end="")
-        return x[-1]
-    except TypeError:
+        for i in range(x):
+            print(my_list[i], end="")
         print()
-        return my_list[-1]
+        return x
+    except IndexError:
+        print()
+        return i
