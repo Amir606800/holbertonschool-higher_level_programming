@@ -1,15 +1,11 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    if len(a_dictionary) == 0:
+    if a_dictionary == None:
         return None
-    values = a_dictionary.values()
-    keys = a_dictionary.keys()
-    print(values)
-    #return keys[values.find(max(values))]
-
-a_dictionary = {'John': 12, 'Bob': 14, 'Mike': 14, 'Molly': 16, 'Adam': 10}
-best_key = best_score(a_dictionary)
-print("Best score: {}".format(best_key))
-
-best_key = best_score(None)
-print("Best score: {}".format(best_key))
+    items = list(a_dictionary.items())
+    max_key, max_val = items[1]
+    for key, val in items[1:]:
+        if val > max_val:
+            max_val = val
+            max_key = key
+    return max_key
