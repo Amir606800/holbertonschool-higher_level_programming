@@ -56,13 +56,13 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return ""
         for i in range(self.height):
-            drawing = drawing + self.width * "#" + "\n"
-        return drawing
+            print(self.width * 2)
+        return ""
 
     def __repr__(self):
         drawing = ""
         if self.width == 0 or self.height == 0:
             return ""
         for i in range(self.height):
-            drawing = drawing + self.width * "#" + "\n"
-        return drawing
+            print(self.width * 2)
+        return ""
