@@ -48,19 +48,21 @@ class Rectangle:
 
     def perimeter(self):
         if self.width == 0 or self.height == 0:
-            print("")
-            return
+            return 0
         return ((self.width * 2) + (self.height * 2))
 
     def __str__(self):
+        drawing = ""
         if self.width == 0 or self.height == 0:
             print("")
             return
         for i in range(self.height):
-            print(self.width * "#")
+            drawing = drawing + self.width * "#" + "\n"
 
     def __repr__(self):
+        drawing = ""
         if self.width == 0 or self.height == 0:
-            return 0
+            print("")
+            return
         for i in range(self.height):
-            print(self.width * "#")
+            drawing = drawing + self.width * "#" + "\n"
