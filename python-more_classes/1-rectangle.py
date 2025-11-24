@@ -5,6 +5,10 @@
 class Rectangle:
     """ Here we will pass the methods in order to create an empty class"""
     def __init__(self, width=0, height=0):
+        if not isinstance(width, int) or not isinstance(height, int):
+            raise TypeError
+        if width < 0 or height < 0:
+            raise ValueError
         self.__width = width
         self.__height = height
 
