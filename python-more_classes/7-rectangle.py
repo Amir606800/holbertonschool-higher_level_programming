@@ -60,8 +60,8 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return drawing
         for i in range(self.height-1):
-            drawing = drawing + self.width * Rectangle.print_symbol + "\n"
-        return drawing + self.width * Rectangle.print_symbol
+            drawing = drawing + self.width * str(self.print_symbol) + "\n"
+        return drawing + self.width * str(self.print_symbol)
 
     def __repr__(self):
         return f"Rectangle({self.__width}, {self.height})"
