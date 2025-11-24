@@ -54,15 +54,15 @@ class Rectangle:
     def __str__(self):
         drawing = ""
         if self.width == 0 or self.height == 0:
-            print("")
-            return
+            return ""
         for i in range(self.height):
             drawing = drawing + self.width * "#" + "\n"
+        return drawing
 
     def __repr__(self):
         drawing = ""
         if self.width == 0 or self.height == 0:
-            print("")
-            return
+            return ""
         for i in range(self.height):
             drawing = drawing + self.width * "#" + "\n"
+        return drawing
