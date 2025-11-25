@@ -1,0 +1,8 @@
+Testing cases for the geometry
+------------------------------
+
+First let's import the class
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Now Let's check all the cases starting from the first
+    >>> 
