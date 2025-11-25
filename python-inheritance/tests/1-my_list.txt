@@ -25,7 +25,7 @@ Now the second test case
     >>> my_list.append(8)
     >>> my_list.append(10)
     >>> my_list.print_sorted()
-    [0, 2, 5, 6, 8, 10] 
+    [0, 2, 5, 6, 8, 10]
 
 The Third test case
     >>> my_list = MyList()
