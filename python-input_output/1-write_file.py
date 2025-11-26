@@ -9,4 +9,5 @@ def write_file(filename="", text=""):
     """ Open the file with the write write mode """
 
     with open(filename, "w") as f:
-        f.write(text)
+        b = f.write(text)
+        print(b)
