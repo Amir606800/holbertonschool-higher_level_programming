@@ -5,7 +5,7 @@
 """
 
 
-def write_file(filename="", text=""):
+def append_write(filename="", text=""):
     """ Open the file with the write write mode """
 
     with open(filename, "a") as f:
