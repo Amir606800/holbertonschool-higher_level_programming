@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-BaseGeometry = __import__('7-base_geometry.py').BaseGeometry
 """ Creating the second class which inherits from first one """
 
+
+BaseGeometry = __import__('7-base_geometry.py').BaseGeometry
 
 class Rectangle(BaseGeometry):
     """ Now we instantinate the class """
