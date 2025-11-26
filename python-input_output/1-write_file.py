@@ -8,5 +8,5 @@
 def write_file(filename="", text=""):
     """ Open the file with the write write mode """
 
-    with open(filename, "w") as f:
+    with open(filename, "w", encoding="utf-8") as f:
         print(f.write(text))
