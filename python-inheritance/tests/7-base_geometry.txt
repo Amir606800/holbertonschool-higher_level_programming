@@ -28,6 +28,13 @@ Third Error
     ValueError: distance must be greater than 0
 
 Next
+    >>> bg.area()
+    Traceback (most recent call last):
+      File "<main.py>", line 14, in <module>
+      File "<main.py>", line 5, in area
+    Exception: area() is not implemented
+
+Next
     >>> bg.integer_validator()
     Traceback (most recent call last):
       File "/usr/lib/python3.9/doctest.py", line 1336, in __run
