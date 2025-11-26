@@ -10,7 +10,5 @@ def save_to_json_file(my_obj, filename):
       then write the file
     """
 
-    formatted_string = json.dump(my_obj, f)
-    """ Burda Dumps yerine Dump istifade edilmelidir cunki"""
     with open(filename, "w") as f:
-        f.write(formatted_string)
+        json.dump(my_obj, f)
