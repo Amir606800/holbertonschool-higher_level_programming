@@ -2,7 +2,7 @@
 """ Creating the second class which inherits from first one """
 
 
-BaseGeometry = __import__('7-base_geometry.py').BaseGeometry
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 class Rectangle(BaseGeometry):
     """ Now we instantinate the class """
