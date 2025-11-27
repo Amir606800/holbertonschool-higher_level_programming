@@ -10,9 +10,9 @@ def serialize_and_save_to_file(data, filename):
       and the destination file
     """
     with open(filename, "w") as f:
-        f.dump(data, f)
+        json.dump(data, f)
 
 def load_and_deserialize(filename):
     with open(filename, "r") as f:
-        return f.loads(f)
+        return json.loads(f)
 
