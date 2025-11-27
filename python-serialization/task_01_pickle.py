@@ -16,8 +16,9 @@ class CustomObject:
             pickle.dumps(f)
     
     def display(self):
-        for k, v in self.__dict__:
-            print(f"{k}: {v}")
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+        print(f"Is Student: {self.is_student}")
 
     @classmethod
     def deserialize(cls, filename):
