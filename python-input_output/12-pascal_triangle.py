@@ -3,10 +3,10 @@
 
 
 def factorial(n):
-    """ 
+    """
       Just start with value s with default
       one then decrase everytime
-      and multiplicate 
+      and multiplicate
     """
     if n == 0:
         return 1
