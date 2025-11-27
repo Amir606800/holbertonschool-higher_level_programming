@@ -4,7 +4,8 @@
 
 def factorial(n):
     """ Just start with value s with default one then decrase everytime and multiplicate """
-
+    if n == 0:
+        return 1
     s = 1
     while n > 0:
         s = s * n
@@ -16,6 +17,9 @@ def factorial(n):
 
 
 def pascal_triangle(n):
+    """ create an general list to contain small portions """
+    if n <= 0:
+        return []
     umumi = []
     for i in range(n):
         balaja = []
