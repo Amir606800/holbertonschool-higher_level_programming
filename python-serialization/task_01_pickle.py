@@ -13,7 +13,7 @@ class CustomObject:
 
     def serialize(self, filename):
         with open(filename, "wb") as f:
-            pickle.dump(f)
+            pickle.dump(self, f)
     
     def display(self):
         print(f"Name: {self.name}")
