@@ -14,13 +14,12 @@ def convert_csv_to_json(filename):
     calisiriq daha sonra ise
     onu list edib json ile dump edirik yeni file-a
     """
-
-    with open(filename, "r") as f:
-        try:
+    try:
+        with open(filename, "r") as f:
             reader = csv.DictReader(f)
-        except FileNotFoundError:
-            return False
         data = list(reader)
+    except FileNotFoundError:
+        return False
 
     with open("data.json", "w") as f:
         json.dump(data, f)
