@@ -3,7 +3,11 @@
 
 
 def factorial(n):
-    """ Just start with value s with default one then decrase everytime and multiplicate """
+    """ 
+      Just start with value s with default
+      one then decrase everytime
+      and multiplicate 
+    """
     if n == 0:
         return 1
     s = 1
