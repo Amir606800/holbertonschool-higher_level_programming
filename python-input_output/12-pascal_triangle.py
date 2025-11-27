@@ -1,11 +1,18 @@
 #!/usr/bin/python3
+""" First create a factorial function please. """
+
 
 def factorial(n):
+    """ Just start with value s with default one then decrase everytime and multiplicate """
+
     s = 1
     while n > 0:
         s = s * n
         n -= 1
     return s
+
+
+""" Now we can start to write the pascal function """
 
 
 def pascal_triangle(n):
