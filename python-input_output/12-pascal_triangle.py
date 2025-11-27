@@ -20,6 +20,6 @@ def pascal_triangle(n):
     for i in range(n):
         balaja = []
         for j in range(i + 1):
-            balaja.append(factorial(i) // (factorial(j) * factorial(i - j)), end=" "))
+            balaja.append(factorial(i) // (factorial(j) * factorial(i - j)))
         umumi.append(balaja)
     return umumi
