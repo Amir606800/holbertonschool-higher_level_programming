@@ -16,6 +16,6 @@ class Student:
             return di
         new_dict = {}
         for i in attrs:
-            if i in di.keys():
+            if i in di:
                 new_dict[i] = di[i]
         return new_dict
