@@ -4,4 +4,4 @@
 
 def class_to_json(obj):
     """ The just dump the object's dictionary """
-    json.dumps(obj.__dict__)
+    return obj.__dict__
