@@ -1,2 +1,2 @@
 -- DEscribing the info of a table
-DESCRIBE first_table;
+SELECT * FROM first_table;
