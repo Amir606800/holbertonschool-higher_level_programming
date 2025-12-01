@@ -11,5 +11,3 @@ if len(sys.argv) >= 2:
         print(web.headers["X-Request-Id"])
 else:
     print()
-
-
