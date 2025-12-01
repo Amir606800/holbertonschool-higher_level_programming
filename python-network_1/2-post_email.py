@@ -14,7 +14,7 @@ def post_insta():
     data = urllib.parse.urlencode(data)
     data = data.encode('utf-8')
     headers = {'cfclearance': 'true'}
-    req = Request(url, data = data, headers = headers)
+    req = Request(url, data, headers)
     with urlopen(req) as r:
         print(r.read().decode())
 
