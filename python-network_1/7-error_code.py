@@ -9,8 +9,9 @@ if len(sys.argv) < 2:
     print()
 else:
     url = sys.argv[1]
-    try:
-        res = requests.get(url)
+    res = requests.get(url)
+    print(res.text)
+    if res.status_code >= 400:
+        print(f"Error code: {res.status_code}")
+    else:
         print(res.text)
-    except re.HTTPError as errh:
-        print(f"Error code: {errh.status_ode}")
