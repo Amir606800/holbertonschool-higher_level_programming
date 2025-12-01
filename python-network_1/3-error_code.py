@@ -8,7 +8,7 @@ if len(sys.argv) >= 2:
 
     url = sys.argv[1]
     headers = {'cfclearance': 'true'}
-    req = Request(url, headers = headers)
+    req = Request(url, headers=headers)
 
     try:
         with urlopen(req) as res:
