@@ -10,7 +10,6 @@ if len(sys.argv) < 2:
 else:
     url = sys.argv[1]
     res = requests.get(url)
-    print(res.text)
     if res.status_code >= 400:
         print(f"Error code: {res.status_code}")
     else:
