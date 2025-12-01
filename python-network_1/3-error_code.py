@@ -4,7 +4,7 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 import sys
 
-if len(sys.argv) < 2:
+if len(sys.argv) >= 2:
 
     url = sys.argv[1]
     headers = {'cfclearance': 'true'}
