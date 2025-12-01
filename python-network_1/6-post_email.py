@@ -9,6 +9,6 @@ if len(sys.argv) >= 3:
     email = sys.argv[2]
     headers = {'cfclearance': 'true'}
     res = requests.post(url, data={"email": email}, headers=headers)
-    print(f"Your email is: {res.text}")
+    print(res.text)
 else:
     print()
