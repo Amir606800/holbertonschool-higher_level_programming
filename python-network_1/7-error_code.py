@@ -13,4 +13,4 @@ else:
         res = requests.get(url)
         print(res.text)
     except re.HTTPError as errh:
-        print(f"Error code: {errh.code}")
+        print(f"Error code: {errh.status_ode}")
