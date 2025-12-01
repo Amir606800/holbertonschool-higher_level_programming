@@ -14,6 +14,6 @@ if len(sys.argv) >= 2:
         with urlopen(req) as res:
             print(res.read().decode())
     except HTTPError as e:
-        print(f"Error code: {e}")
+        print(f"Error code: {e.code}")
 else:
     print()
