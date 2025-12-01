@@ -18,4 +18,5 @@ def post_insta():
     with urlopen(req) as r:
         print(r.read().decode())
 
+
 post_insta()
