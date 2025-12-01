@@ -10,7 +10,7 @@ else:
     q = ""
 
 try:
-    response = requests.post("http://0.0.0.0:5000/search_user", data={"q": q})
+    response = requests.post("http://0.0.0.0:5000/search_user", data={"q": q}, headers={'cfclearance': 'true'})
     res_json = response.json()
 except ValueError:
     print("Not a valid JSON")
