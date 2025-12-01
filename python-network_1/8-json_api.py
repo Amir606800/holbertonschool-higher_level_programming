@@ -9,11 +9,13 @@ if len(sys.argv) >= 2:
 else:
     q = ""
 
-response = requests.post(f"http://0.0.0.0:5000/search_user?q={q}")
-res_json = response.json()
-if len(res_json) > 0:
-    print(res_json)
-elif res_json == 0:
-    print("No result")
-else:
+try:
+    response = requests.post("http://0.0.0.0:5000/search_user", data={"q": q})
+    res_json = response.json()
+except ValueError:
     print("Not a valid JSON")
+
+if res_json:
+    print(f"[{res_json.get('id')}] {res_json.get('name')}")
+else:
+    print("No result")
