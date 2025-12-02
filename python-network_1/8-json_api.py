@@ -10,11 +10,14 @@ if __name__ == "__main__":
         q = ""
 
     try:
-        response = requests.post("http://0.0.0.0:5000/search_user", data={"q": q})
+        response = requests.post(
+            "http://0.0.0.0:5000/search_user",
+            data={"q": q}
+        )
         res_json = response.json()
     except ValueError:
         print("Not a valid JSON")
-        
+
     if res_json:
         print(f"[{res_json.get('id')}] {res_json.get('name')}")
     else:
