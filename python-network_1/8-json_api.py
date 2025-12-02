@@ -14,7 +14,7 @@ if __name__ == "__main__":
         res_json = response.json()
     except ValueError:
         print("Not a valid JSON")
-        sys.exit(1)
+        
     if res_json:
         print(f"[{res_json.get('id')}] {res_json.get('name')}")
     else:
