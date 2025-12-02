@@ -12,7 +12,7 @@ def fetch_and_print_posts():
             print(i["title"])
 
 def fetch_and_save_posts():
-    res = requests.get("https://jsonplaceholder.typicode.com/todos")
+    res = requests.get("https://jsonplaceholder.typicode.com/posts")
     posts = []
     if res.status_code == 200:
         for i in res.json():
