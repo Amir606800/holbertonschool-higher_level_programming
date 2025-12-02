@@ -4,7 +4,7 @@ import csv
 
 
 def fetch_and_print_posts():
-    res = requests.get("https://jsonplaceholder.typicode.com/todos")
+    res = requests.get("https://jsonplaceholder.typicode.com/posts")
     print(f"Status Code: {res.status_code}")
     if res.status_code == 200:
         res_json = res.json()
@@ -19,9 +19,11 @@ def fetch_and_save_posts():
             post = {}
             post["id"] = i["id"]
             post["title"] = i["title"]
-            post["body"] = i["completed"]
+            post["body"] = i["body"]
             posts.append(post)
         with open('posts.csv', "w") as p:
             writer = csv.DictWriter(p, fieldnames=["id", "title", "body"])
 
             writer.writerows(posts)
+fetch_and_print_posts()
+fetch_and_save_posts()
