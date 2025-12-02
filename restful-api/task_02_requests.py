@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+import requests
+import csv
+
+
+def fetch_and_print_posts():
+    res = requests.get("https://jsonplaceholder.typicode.com/todos")
+    print(res.status_code)
+    if res.status_code == 200:
+        res_json = res.json()
+        for i in res_json:
+            print(i["title"])
+
+def fetch_and_save_posts():
+    res = requests.get("https://jsonplaceholder.typicode.com/todos")
+    posts = []
+    if res.status_code == 200:
+        for i in res.json():
+            post = {}
+            post["id"] = i["id"]
+            post["title"] = i["title"]
+            post["body"] = i["completed"]
+            posts.append(post)
+        with open('posts.csv', "w") as p:
+            writer = csv.DictWriter(p, fieldnames=["id", "title", "body"])
+
+            writer.writerows(posts)
+
+
+fetch_and_print_posts()
+
+fetch_and_save_posts()
