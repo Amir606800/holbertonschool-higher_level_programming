@@ -9,6 +9,11 @@ class MyClass(BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/html")
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!\n")
+        elif self.path == "/status":
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+            self.wfile.write(b"OK\n")
         elif self.path == "/data":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
