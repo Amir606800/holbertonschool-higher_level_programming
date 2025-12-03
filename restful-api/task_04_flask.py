@@ -20,7 +20,13 @@ def data():
     username_list = []
     for i in users.keys():
         username_list.append(i)
-    return username_list, 200
+    return jsonify(username_list), 200
+
+@app.route("/users/<username>")
+def get_user(username):
+    user = users.get(username)
+    if not user:
+        return jsonify({"error": "User not found"}), 404
 
 @app.post("/add_user"):
     data = request.get_json()
