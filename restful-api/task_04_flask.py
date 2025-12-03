@@ -43,13 +43,7 @@ def adding_user():
     users[username] = data
     return (jsonify({
         "message": "User added",
-        "user": {
-                "username": "alice",
-                "name": "Alice",
-                "age": 25,
-                "city": "San Francisco"
-            }
-        }), 201)
+        "user": data), 201)
 
 
 if __name__ == "__main__": app.run()
