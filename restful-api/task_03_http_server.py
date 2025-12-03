@@ -8,27 +8,27 @@ class MyClass(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-type", "text/html")
             self.end_headers()
-            self.wfile.write(b"Hello, this is a simple API!\n")
+            self.wfile.write(b"Hello, this is a simple API!")
         elif self.path == "/status":
             self.send_response(200)
             self.send_header("Content-type", "text/html")
             self.end_headers()
-            self.wfile.write(b"OK\n")
+            self.wfile.write(b"OK")
         elif self.path == "/data":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            self.wfile.write(b'{"name": "John", "age": 30, "city": "New York"}\n')
+            self.wfile.write(b'{"name": "John", "age": 30, "city": "New York"}')
         elif self.path == "/info":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            self.wfile.write(b'{"version": "1.0", "description": "A simple API built with http.server"}\n')
+            self.wfile.write(b'{"version": "1.0", "description": "A simple API built with http.server"}')
         else:
             self.send_response(404)
             self.send_header('Content-type', "text/html")
             self.end_headers()
-            self.wfile.write(b'Endpoint not found\n')
+            self.wfile.write(b'Endpoint not found')
     def do_POST(self):
         length = int(self.headers.get('Content-Length'))
         body = self.rfile.read(length)
