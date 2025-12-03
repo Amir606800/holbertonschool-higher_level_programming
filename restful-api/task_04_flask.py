@@ -28,7 +28,8 @@ def get_user(username):
     if not user:
         return jsonify({"error": "User not found"}), 404
 
-@app.post("/add_user"):
+@app.post("/add_user")
+def adding_user():
     data = request.get_json()
     username = data["username"]
     if not request.is_json:
