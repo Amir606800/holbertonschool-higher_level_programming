@@ -31,7 +31,7 @@ def get_user(username):
 @app.post("/add_user")
 def adding_user():
     data = request.get_json()
-    username = data["username"]
+    username = data.get("username")
     if not request.is_json:
         return jsonify({"error": "Invalid JSON"}), 400
     if username in users.keys():
