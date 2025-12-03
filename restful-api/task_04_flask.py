@@ -27,6 +27,7 @@ def get_user(username):
     user = users.get(username)
     if not user:
         return jsonify({"error": "User not found"}), 404
+    return jsonify(user)
 
 @app.post("/add_user")
 def adding_user():
