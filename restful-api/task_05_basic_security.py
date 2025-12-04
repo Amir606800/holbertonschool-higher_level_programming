@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = "soSecret"
 
 #-------------------------------
-# We can also manage the errors 
+# We can also manage the errors
 # like token is invalid or need a refresh
 #------------------------------------
 
@@ -61,9 +61,9 @@ def prot_bas():
     return jsonify({"msg":"Basic Auth: Access Granted"})
 
 #----------------------------------------------
-# Or we can just use the username and 
+# Or we can just use the username and
 # the password only in the login section
-# And create a token to check the auth session 
+# And create a token to check the auth session
 #-----------------------------------------------
 
 @app.route("/login", methods=["POST"])
@@ -71,15 +71,15 @@ def login():
     data = request.get_json()
     username = data["username"]
     password = data["password"]
-    
+
     if username not in users.keys():
         return jsonify({"msg":"User not found!"}), 404
-    
+
     if not check_password_hash(users[username].get("password"), password):
         return jsonify({"msg":"Invalid user credentials"}), 401
-    
+
     token = create_access_token(identity=username, additional_claims={"role": users[username].get("role")})
-    
+
     return jsonify({"access_token": token})
 
 @app.route("/jwt-protected")
@@ -92,9 +92,9 @@ def prot_jwt():
 def admin_page():
     user = get_jwt()
     role = user.get("role")
-    
+
     if role != "admin":
         return jsonify({"msg": "You are not allowed here!"}), 403
     return jsonify({"msg":"Admin Access: Granted"})
 
-
+if __name__ == "__main__": app.run()
