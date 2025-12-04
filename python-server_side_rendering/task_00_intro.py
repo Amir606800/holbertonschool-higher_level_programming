@@ -20,7 +20,7 @@ def generate_invitations(template_content, attendees):
             for k, v in attend.items():
                 print(k, v)
                 if not attend.get(k):
-                    new_invitation = new_invitation.replace("{"+k+"}","N/A")
+                    new_invitation = new_invitation.replace("{"+k+"}", "'N/A'")
                 else:
                     new_invitation = new_invitation.replace("{"+k+"}", attend.get(k))
             print(new_invitation)
