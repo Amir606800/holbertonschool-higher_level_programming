@@ -20,8 +20,9 @@ def generate_invitations(template_content, attendees):
     try:
         for attend in attendees:
             new_invitation = template_content + ""
+            if len(attend) != template_content.count("{"):
+                raise Exception("Invalid data size")
             for k, v in attend.items():
-                print(k, v)
                 if not attend.get(k):
                     new_invitation = new_invitation.replace("{"+k+"}", "'N/A'")
                 else:
