@@ -5,7 +5,7 @@ import os
 
 def generate_invitations(template_content, attendees):
 
-    if len(template_content) == 0 or not isinstance(template_content, str):
+    if not isinstance(template_content, str) or len(template_content) == 0:
         print("Template is empty, no output files generated.")
         return
 
