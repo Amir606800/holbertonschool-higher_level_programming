@@ -8,7 +8,10 @@ def generate_invitations(template_content, attendees):
     if len(template_content) == 0:
         print("Template is empty, no output files generated.")
         return
-
+    try:
+        template_content += ""
+    except Exception as e:
+        print(e)
     if len(attendees) == 0 or attendees == {}:
         print("No data provided, no output files generated.")
         return
