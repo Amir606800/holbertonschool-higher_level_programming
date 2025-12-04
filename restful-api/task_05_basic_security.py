@@ -94,7 +94,7 @@ def admin_page():
     role = user.get("role")
 
     if role != "admin":
-        return "You are not allowed here!"
+        return "You are not allowed here!", 403
     return "Admin Access: Granted"
 
 if __name__ == "__main__": app.run()
