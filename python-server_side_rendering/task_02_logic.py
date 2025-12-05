@@ -6,6 +6,7 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+
 @app.route('/about')
 def about():
     return render_template('about.html')
@@ -14,12 +15,14 @@ def about():
 def contact():
     return render_template('contact.html')
 
-with open('./items.json', "r") as it:
+with open('D:\Task\holbertonschool-higher_level_programming\python-server_side_rendering\items.json', "r") as it:
     data = json.load(it)
+
     
 @app.route('/items')
 def items():
-    return render_template('items.html', items=data)
+    items = data["items"] if data["items"] else []
+    return render_template('items.html', items=items)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
