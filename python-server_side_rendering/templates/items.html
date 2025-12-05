@@ -1,8 +1,6 @@
 <h1>Items List</h1>
 <ul>
-    {% if items['items'] %}
-    {% for item in items["items"] %}
-    <li>{{item}}</li>
-    {% endfor %}
-    {% endif %}
+  {% if items['items'] %} {% for item in items["items"] %}
+  <li>{{item}}</li>
+  {% endfor %} {% else %} No items found {% endif %}
 </ul>
