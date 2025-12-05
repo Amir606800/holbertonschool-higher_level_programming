@@ -15,9 +15,9 @@ def about():
 def contact():
     return render_template('contact.html')
 
-with open('./items.json', "r") as it:
+with open('items.json', "r") as it:
     data = json.load(it)
-
+print(data)
     
 @app.route('/items')
 def items():
