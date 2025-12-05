@@ -15,13 +15,17 @@ def about():
 def contact():
     return render_template('contact.html')
 
-with open('items.json', "r") as it:
-    data = json.load(it)
-print(data)
+
     
 @app.route('/items')
 def items():
-    items = data["items"] if data["items"] else []
+    try:
+        with open('items.json', "r") as it:
+            data = json.load(it)
+        items = data["items"] if data["items"] else []
+    except:
+        items = []
+    
     return render_template('items.html', items=items)
 
 if __name__ == '__main__':
