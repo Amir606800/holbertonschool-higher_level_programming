@@ -38,7 +38,7 @@ def products():
     #check if it is json 
     if source == 'json':
         try:
-            with open('D:\Task\holbertonschool-higher_level_programming\python-server_side_rendering\products.json', "r") as prod_json:
+            with open('./products.json', "r") as prod_json:
                 data = json.load(prod_json)
             table_heads = data[0].keys()
             table_items = data
@@ -49,7 +49,7 @@ def products():
     elif source == 'csv':
         try:
             data = []
-            with open('D:\Task\holbertonschool-higher_level_programming\python-server_side_rendering\products.csv', 'r') as p_csv:
+            with open('./products.csv', 'r') as p_csv:
                 data_csv = csv.DictReader(p_csv)
                 for i in data_csv:
                     data.append(i)
@@ -77,13 +77,11 @@ def products():
             error_message = 'Product not found'
     except Exception:
         pass
-    
-    print(table_heads)
-    print(table_items)
+
     
     return render_template(
         'product_display.html',
-        table_heads=table_heads or [],
+        table_heads=list(table_heads)[1:] or [],
         table_items=table_items or [{}],
         error_message=error_message or None
     )
