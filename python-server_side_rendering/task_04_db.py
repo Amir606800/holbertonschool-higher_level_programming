@@ -36,6 +36,7 @@ def products():
     table_heads = []
     table_items = []
     error_message = None
+    
     #check if it is json 
     match source:
         case "json":
@@ -48,7 +49,7 @@ def products():
                 print("JSON file Not Found")
 
         #check if it is csv  
-        case'csv':
+        case 'csv':
             try:
                 data = []
                 with open('./products.csv', 'r') as p_csv:
@@ -77,7 +78,8 @@ def products():
                 #    table_items.append(item)   
             
             except Exception as e:
-                print("Connection is not established", e)
+                print("Connection is not established")
+
         # Handle invalid format
         case _:
             return "Wrong source"
@@ -106,8 +108,29 @@ def products():
         error_message=error_message or None
     )
 
+def create_database():
+    conn = sqlite3.connect('products.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS Products (
+            id INTEGER PRIMARY KEY,
+            name TEXT NOT NULL,
+            category TEXT NOT NULL,
+            price REAL NOT NULL
+        )
+    ''')
+    cursor.execute('''
+        INSERT INTO Products (id, name, category, price)
+        VALUES
+        (1, 'Laptop', 'Electronics', 799.99),
+        (2, 'Coffee Mug', 'Home Goods', 15.99)
+    ''')
+    conn.commit()
+    conn.close()
+
 
 
 
 if __name__ == '__main__':
+    create_database()
     app.run(debug=True, port=5000)
