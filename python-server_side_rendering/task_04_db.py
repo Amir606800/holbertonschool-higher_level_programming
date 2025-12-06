@@ -38,51 +38,49 @@ def products():
     error_message = None
     
     #check if it is json 
-    match source:
-        case "json":
-            try:
-                with open('./products.json', "r") as prod_json:
-                    data = json.load(prod_json)
-                table_heads = data[0].keys()
-                table_items = data
-            except FileNotFoundError:
-                print("JSON file Not Found")
 
-        #check if it is csv  
-        case 'csv':
-            try:
-                data = []
-                with open('./products.csv', 'r') as p_csv:
-                    data_csv = csv.DictReader(p_csv)
-                    for i in data_csv:
-                        data.append(i)
-                table_heads = data[0].keys()
-                table_items = data
-            except FileNotFoundError:
-                print("CSV file Not Found")
-                
-        # Check if it is a SQL Database
-        case "sql":
-            try:
-                conn = sqlite3.connect('products.db')
-                curr = conn.cursor()
-                curr.execute('''SELECT * FROM Products''')
-                rows = curr.fetchall()
-                table_heads = [description[0] for description in curr.description]
-                table_items = [dict(zip(table_heads, row)) for row in rows]
-                
-                #for i in rows:
-                #    item = {}
-                #    for key_id in range(len(table_heads)):
-                #        item[table_heads[key_id]] = i[key_id]
-                #    table_items.append(item)   
+    if source ==  "json":
+        try:
+            with open('./products.json', "r") as prod_json:
+                data = json.load(prod_json)
+            table_heads = data[0].keys()
+            table_items = data
+        except FileNotFoundError:
+            print("JSON file Not Found")
+    #check if it is csv  
+    elif source ==  'csv':
+        try:
+            data = []
+            with open('./products.csv', 'r') as p_csv:
+                data_csv = csv.DictReader(p_csv)
+                for i in data_csv:
+                    data.append(i)
+            table_heads = data[0].keys()
+            table_items = data
+        except FileNotFoundError:
+            print("CSV file Not Found")
             
-            except Exception as e:
-                print("Connection is not established")
-
-        # Handle invalid format
-        case _:
-            return "Wrong source"
+    # Check if it is a SQL Database
+    elif source ==  "sql":
+        try:
+            conn = sqlite3.connect('products.db')
+            curr = conn.cursor()
+            curr.execute('''SELECT * FROM Products''')
+            rows = curr.fetchall()
+            table_heads = [description[0] for description in curr.description]
+            table_items = [dict(zip(table_heads, row)) for row in rows]
+            
+            #for i in rows:
+            #    item = {}
+            #    for key_id in range(len(table_heads)):
+            #        item[table_heads[key_id]] = i[key_id]
+            #    table_items.append(item)   
+        
+        except Exception :
+            print("Connection is not established")
+    # Handle invalid format
+    else:
+        return "Wrong source"
 
     
     

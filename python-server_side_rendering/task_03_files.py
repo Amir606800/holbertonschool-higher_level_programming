@@ -35,6 +35,8 @@ def products():
     table_heads = []
     table_items = []
     error_message = None
+    
+    # Burda deyesen match case islemir. If else ile yazmaq lazimdir !!!!
     #check if it is json 
     match source:
         case "json":
