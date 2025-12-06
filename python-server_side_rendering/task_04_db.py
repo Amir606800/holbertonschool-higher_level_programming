@@ -130,5 +130,5 @@ def create_database():
 
 
 if __name__ == '__main__':
-    create_database()
+    #create_database()
     app.run(debug=True, port=5000)
