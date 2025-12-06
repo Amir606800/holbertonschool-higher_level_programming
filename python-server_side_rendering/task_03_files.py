@@ -60,7 +60,7 @@ def products():
 
     # Handle invalid format
     else:
-        error_message = "Wrong source"
+        error_message = "Failed: Wrong source error not found"
 
     
     
