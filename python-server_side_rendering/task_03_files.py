@@ -60,7 +60,7 @@ def products():
 
     # Handle invalid format
     else:
-        error_message = "Failed: Wrong source error not found"
+        return "Wrong source"
 
     
     
@@ -77,7 +77,7 @@ def products():
             error_message = 'Product not found'
     except Exception:
         pass
-
+        
     
     return render_template(
         'product_display.html',
